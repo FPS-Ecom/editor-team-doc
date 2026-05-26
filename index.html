@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Editor Team — Master Doc</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #f90100;
+    --yellow: #f9f611;
+    --blue: #83c5ff;
+    --dark-green: #015138;
+    --light-green: #00a524;
+    --white: #ffffff;
+    --black: #000000;
+    --paper: #fafafa;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: var(--black);
+    background: var(--paper);
+    margin: 0;
+    padding: 48px 32px;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  h1 {
+    font-weight: 900;
+    font-size: 46px;
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 22px;
+    margin: 36px 0 12px;
+    padding: 10px 14px;
+    background: var(--dark-green);
+    color: var(--white);
+    border-radius: 6px;
+    letter-spacing: -0.01em;
+  }
+  h3 {
+    font-weight: 700;
+    font-size: 16px;
+    margin: 20px 0 8px;
+    color: var(--dark-green);
+  }
+  .tagline {
+    font-weight: 500;
+    color: var(--dark-green);
+    margin-bottom: 32px;
+    font-size: 15px;
+  }
+  ul { margin: 6px 0 0; padding-left: 22px; }
+  li { margin: 4px 0; }
+  .card {
+    background: var(--white);
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: 6px;
+    margin-bottom: 4px;
+  }
+  .pill-red { background: var(--red); color: var(--white); }
+  .pill-yellow { background: var(--yellow); color: var(--black); }
+  .pill-blue { background: var(--blue); color: var(--black); }
+  .pill-green { background: var(--light-green); color: var(--white); }
+  .pill-dark { background: var(--dark-green); color: var(--white); }
+  .swatch-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+  .swatch { width: 80px; text-align: center; font-size: 11px; font-weight: 500; }
+  .swatch .chip { height: 50px; border-radius: 6px; border: 1px solid #eee; margin-bottom: 4px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: var(--white);
+    font-size: 13px;
+  }
+  th, td {
+    border: 1px solid #e5e5e5;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--blue); font-weight: 700; color: var(--black); }
+  a { color: var(--dark-green); text-decoration: underline; }
+  .handles a { margin-right: 14px; font-weight: 500; }
+  .callout {
+    background: var(--yellow);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  .nonneg {
+    background: #fff5f5;
+    border-left: 4px solid var(--red);
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-top: 8px;
+  }
+  .pillar {
+    background: var(--white);
+    border: 1px solid #eee;
+    border-left: 6px solid var(--light-green);
+    padding: 16px 20px;
+    border-radius: 6px;
+    margin: 14px 0;
+  }
+  .pillar h3 { margin-top: 0; font-size: 18px; }
+  .pillar-num {
+    display: inline-block;
+    background: var(--dark-green);
+    color: var(--white);
+    font-weight: 900;
+    padding: 2px 10px;
+    border-radius: 4px;
+    margin-right: 8px;
+    font-size: 14px;
+  }
+  .refs a { display: block; font-size: 13px; padding: 3px 0; }
+  .footer {
+    margin-top: 48px;
+    padding-top: 18px;
+    border-top: 1px solid #ddd;
+    font-size: 12px;
+    color: #666;
+  }
+  code {
+    background: #f0f0f0;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+  }
+  @media (max-width: 700px) {
+    body { padding: 24px 16px; }
+    h1 { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Editor Team — Master Doc</h1>
+  <div class="tagline">Short-form only. PixSort build-in-public + personal lifestyle. Bookmark this page.</div>
+
+  <h2>About Tiffany</h2>
+  <div class="card">
+    <p style="margin-top:0">
+      I'm Tiff — founder of <strong>PixSort</strong> (iOS app that sorts your camera roll using AI; launched May 2026) and <strong>Fire Pit Surplus</strong> (ecom brand, $800K in its first 6 months, self-taught SEO). I live in Bali and create build-in-public content full-time.
+    </p>
+    <p>
+      Content has two layers: <strong>ecom + founder authority</strong> as the foundation (FPS, SEO, what it actually takes) and <strong>PixSort build-in-public</strong> as the surface story. Edits should feel professional but human. Never over-produced. Never AI-flavored. Match the storytelling vibe of the Day 1 PixSort video — that's the bar.
+    </p>
+    <h3>Handles</h3>
+    <div class="handles">
+      <span class="pill pill-green">Personal</span>
+      <a href="#">@tiffanyparra (IG)</a>
+      <a href="#">@tiffanyparra (TikTok)</a>
+      <br/><br/>
+      <span class="pill pill-dark">PixSort</span>
+      <a href="#">@pixsort (IG)</a>
+      <a href="#">@pixsort (TikTok)</a>
+    </div>
+    <p style="font-size:12px;color:#888;margin-top:10px;">Confirm exact handles with Tiff before tagging in final exports.</p>
+  </div>
+
+  <h2>Brand — Fonts & Colors</h2>
+  <div class="card">
+    <h3>Font</h3>
+    <p style="margin:4px 0"><strong>Default caption font: thick TikTok-style</strong> — see reference: <a href="https://www.tiktok.com/t/ZP8pt1xLu/">TikTok font reference</a> (same thickness). Secondary reference: <a href="https://www.instagram.com/p/DHqm9f1Rb_Q/">IG post</a>.</p>
+    <p style="margin:4px 0;font-size:13px;color:#555">Style: white text, black stroke, centered mid-screen. Inter Bold 900 is the closest web fallback if the TikTok font isn't available.</p>
+
+    <h3>Colors</h3>
+    <div class="swatch-row">
+      <div class="swatch"><div class="chip" style="background:#f90100"></div>Red<br/>#f90100</div>
+      <div class="swatch"><div class="chip" style="background:#f9f611"></div>Yellow<br/>#f9f611</div>
+      <div class="swatch"><div class="chip" style="background:#83c5ff"></div>Blue<br/>#83c5ff</div>
+      <div class="swatch"><div class="chip" style="background:#015138"></div>Dark Green<br/>#015138</div>
+      <div class="swatch"><div class="chip" style="background:#00a524"></div>Light Green<br/>#00a524</div>
+      <div class="swatch"><div class="chip" style="background:#ffffff;border:1px solid #ccc"></div>White<br/>#ffffff</div>
+      <div class="swatch"><div class="chip" style="background:#000000"></div>Black<br/>#000000</div>
+    </div>
+
+    <h3>Color grading <span style="font-size:11px;background:var(--red);color:#fff;padding:2px 8px;border-radius:3px;vertical-align:middle">REQUIRED</span></h3>
+    <ul>
+      <li>All DJI footage is shot in <strong>D-Log</strong> — first convert to Rec709 using the <a href="https://www.dji.com/id/downloads/softwares/osmo-pocket-3-dlog-to-rec709">DJI D-Log → Rec709 LUT</a></li>
+      <li><strong>Then apply</strong> the <a href="https://drive.google.com/file/d/1NTUgST3q8xBnreB__PytjtVDnQWFxPYy/view?usp=drivesdk">Cinematic LUTs pack</a> on top — this is the look I want</li>
+      <li>Match grade across A-roll + B-roll within the same video</li>
+      <li>This overrides any "natural / no filter" default — the cinematic grade is the signature look</li>
+    </ul>
+
+    <h3>Resources</h3>
+    <ul>
+      <li><a href="https://www.canva.com/brand/kAG-JKxnn4w">Canva Design Kit</a></li>
+      <li><a href="https://www.canva.com/design/DAG-JP5A61w/TE5M6ZSaLDmCS9hZ4w4eNw/edit">Graphics Library (Canva)</a></li>
+      <li>Drop the PixSort app logo into edits where it fits naturally</li>
+    </ul>
+  </div>
+
+  <h2>Before Your First Edit — Onboarding</h2>
+  <div class="card">
+    <p style="margin-top:0">Watch + read these before touching your first brief.</p>
+    <h3>Style baseline (watch in this order)</h3>
+    <ul>
+      <li><a href="https://www.instagram.com/tiffanyparraa/">Tiffany's own videos</a> — the baseline. Match pacing, text style, color treatment from her existing posts. When in doubt, look at what she's already published.</li>
+      <li><a href="https://www.instagram.com/jadesprake/?hl=en">Jade Sprake</a> — <strong>clip density is the pacing target.</strong> She changes clips constantly, sometimes mid-sentence. The first few seconds often have 4-6 cuts. If you're holding on one shot for more than 4 seconds during B-roll, ask yourself if it should cut.</li>
+      <li><a href="https://www.instagram.com/reel/DTLlwCgiVTD/">Tiff's lifestyle reel</a> — pacing + text baseline</li>
+      <li><a href="https://www.instagram.com/reel/DTJGno5AYdB/">Jade Sprake reel</a> — clip density + B-roll pacing reference</li>
+    </ul>
+    <h3>Sample briefs (read 2 before starting)</h3>
+    <ul>
+      <li><a href="https://drive.google.com/open?id=11jONt_MlF-kJgz8Vzrxrcwri1o-BuFGY2L1fDyMNkZw">V_091 — Day 2: App Wasn't Working</a></li>
+      <li><a href="https://docs.google.com/document/d/1pYuiL7W2wr6KlKU-_VNn5XB58XNh-CnW0YcWNDTJL6g/edit">V_096 — Your Camera Roll Looks Like Sh*t</a></li>
+      <li><a href="https://docs.google.com/document/d/1Vs8WfBZR8oNGC1vOE6fuZDc0LeHnYACqWuK-ss598t0/edit">V_099 — Alex Street Interview</a></li>
+    </ul>
+  </div>
+
+  <h2>Content Pillars</h2>
+  <div class="callout">All content fits one of these 4 pillars. Each has a different goal + edit style. Pillar 1 is the engine.</div>
+
+  <div class="pillar">
+    <h3><span class="pill-num pillar-num">1</span>Build in Public</h3>
+    <p style="margin:4px 0"><em>Series anchor. Daily vlog structure. Day N of building PixSort to $10k/mo.</em></p>
+    <strong>Goal:</strong> consistency + audience retention. The flagship pillar — most volume.<br/>
+    <strong>Style:</strong> Day 1 video baseline. Hook + story arc + cliffhanger. Lots of motion + b-roll cuts every 2-4s.
+    <div class="refs" style="margin-top:8px">
+      <a href="https://www.tiktok.com/@mattwthecurls/video/7633909776283471135">Matt w the Curls — TikTok reference</a>
+      <a href="https://www.instagram.com/reel/DMvP2wts2zs/">IG reel reference</a>
+      <a href="https://www.tiktok.com/@khris.sheer/video/7490941192251657494">Khris Sheer — TikTok reference</a>
+      <a href="https://www.instagram.com/reels/DVwGDjlgf2h/">IG reel reference</a>
+    </div>
+  </div>
+
+  <div class="pillar">
+    <h3><span class="pill-num pillar-num">2</span>Founder Insights</h3>
+    <p style="margin:4px 0"><em>Educational. Positions me as credible.</em></p>
+    <strong>Goal:</strong> drive authority + saves/shares. Pull from FPS + SEO experience.<br/>
+    <strong>Style:</strong> talking-head heavy, supporting text on screen emphasizing key words, light b-roll, clear visual hierarchy.
+    <div class="refs" style="margin-top:8px">
+      <a href="https://www.instagram.com/reel/DOXiMznDSy6/">IG reference</a>
+      <a href="https://www.tiktok.com/@chris.raroque/video/7567068621843778846">Chris Raroque — TikTok reference</a>
+      <a href="https://www.tiktok.com/@omarontape/video/7623557289529593119">Omaron Tape — TikTok reference</a>
+      <a href="https://www.instagram.com/reels/DWJy4IKkV8S/">IG reference</a>
+    </div>
+  </div>
+
+  <div class="pillar">
+    <h3><span class="pill-num pillar-num">3</span>The Problem</h3>
+    <p style="margin:4px 0"><em>Pain point content. Drives PixSort awareness + downloads.</em></p>
+    <strong>Goal:</strong> conversion-leaning. Speak directly to the photo-organizing pain (full camera roll, can't find anything, 23k photos).<br/>
+    <strong>Style:</strong> punchy hook in first 1.5s, demo the pain visually, soft app reveal at end.
+    <div class="refs" style="margin-top:8px">
+      <a href="https://www.tiktok.com/@james.penny10/video/7613073906177527062">James Penny — TikTok reference</a>
+      <a href="https://www.tiktok.com/@jadalynsmedia/video/7621984053490765086">Jadalyns Media — TikTok reference</a>
+    </div>
+  </div>
+
+  <div class="pillar">
+    <h3><span class="pill-num pillar-num">4</span>Lifestyle</h3>
+    <p style="margin:4px 0"><em>Personal brand. Bali life, gym, padel, surfing, sandboarding, founder dinners. Relatability + engagement.</em></p>
+    <strong>Goal:</strong> humanize me. Pulls non-PixSort audience in.<br/>
+    <strong>Style:</strong> aesthetic + cinematic. LUTs matter most here. Showcase actual hobbies (padel, surf, sandboard) — not generic Bali shots.
+    <div class="refs" style="margin-top:8px">
+      <a href="https://www.instagram.com/reel/DWbsmobE4zC/">IG reference</a>
+      <a href="https://www.tiktok.com/@mattwthecurls/video/7633909776283471135">Matt w the Curls — TikTok reference</a>
+      <a href="https://www.tiktok.com/@hailiemaarie/video/7624573818761235742">Hailie Marie — TikTok reference</a>
+    </div>
+  </div>
+
+  <h2>Inspiration Creators (study these)</h2>
+  <table>
+    <tr><th>#</th><th>Creator</th><th>Why</th><th>Use for</th></tr>
+    <tr style="background:#fffbe6">
+      <td><strong>1</strong></td>
+      <td><a href="https://www.instagram.com/jadesprake/">Jade Sprake</a> <span class="pill pill-yellow" style="font-size:10px">TOP</span></td>
+      <td>The #1 reference. Clip density is the pacing target — constant cuts, sometimes mid-sentence, 4-6 cuts in the first few seconds. Heavy B-roll. Super authentic. Recurring pillar formula (FB spend, entrepreneurship) we want to replicate.</td>
+      <td>All pillars — pacing + structure bible</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><a href="https://www.tiktok.com/@chris.raroque">Chris Raroque</a></td>
+      <td>Same app-journey arc we're running. Build-in-public structure, founder insights.</td>
+      <td>Pillar 1 + 2 — direct template</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><a href="https://www.tiktok.com/@khris.sheer">Khris Sheer</a></td>
+      <td>Vlog-style storytelling, daily series energy.</td>
+      <td>Pillar 1</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><a href="https://www.instagram.com/omarontape/reels/">Omaron Tape</a></td>
+      <td>Strong initial hook + repeatable intro format. We can replicate the intro structure 1:1.</td>
+      <td>All pillars — hook + intro framework</td>
+    </tr>
+  </table>
+  <p style="font-size:13px; margin-top:10px">Goal post for engagement → <a href="https://www.tiktok.com/@melanierrenee/video/7624019333311647007">Melanie Renee — heating goal</a></p>
+
+  <h2>Reusable Assets (Already Shot)</h2>
+  <div class="callout">Don't shoot what we already have. Pull from these before requesting new footage.</div>
+  <ul>
+    <li><strong>#1 TIFF.mp4</strong> — hero cut from Sayu, baseline reference for the lifestyle-into-founder vibe</li>
+    <li><strong>App launch day (May 10, 2026)</strong> — talking head + reaction clips, good for pillar 1 callbacks</li>
+    <li><strong>Early-life / turning 30 batch (May 21)</strong> — college, family, early 20s footage for nostalgia beats</li>
+    <li><strong>Voice notes on style</strong> — Tiff's audio note on street-interview style (5/12) lives in the WhatsApp folder</li>
+    <li><strong>Bali footage (D-Log)</strong> — DJI Bali folder in Google Drive, 100GB+ of color-gradable b-roll</li>
+    <li><strong>User interview footage</strong> — Jennifer interview, dating-scene interview (needs redo), sauna talking head (treehouse alt preferred)</li>
+    <li><strong>Day 1 building an app — final cut</strong> — <a href="https://drive.google.com/file/d/1vB9OXYMEdSiLuWWNJXW6o6mtvyE8z8J9/view?usp=sharing">project file</a>. Use as template.</li>
+    <li><strong><a href="https://drive.google.com/drive/folders/1F78I7M8UF3GtOL95H6PQvtKmiRU9jgkB?usp=drive_link">Master clips folder (Google Drive)</a></strong> — pull from here first before requesting new footage</li>
+    <li><strong><a href="https://drive.google.com/file/d/1NTUgST3q8xBnreB__PytjtVDnQWFxPYy/view?usp=drivesdk">Cinematic LUTs pack</a></strong> — required for all D-Log footage</li>
+  </ul>
+
+  <h2>Team Rules</h2>
+
+  <h3>Response & turnaround</h3>
+  <ul>
+    <li><strong>5 hour max reply time</strong> during your working hours. Flag timezone + working hours in writing.</li>
+    <li><strong>First cut within 24 hours</strong> of brief.</li>
+    <li><strong>Revisions within 24 hours</strong> of feedback.</li>
+    <li><strong>Flag missing clips, unclear briefs, or blockers within 12 hours</strong> of receiving the brief. Not the day it's due.</li>
+    <li>If you'll miss a deadline, message <em>before</em> it's missed with a new ETA. Late heads-up = fine. Silence = not fine.</li>
+  </ul>
+
+  <h3>Communication</h3>
+  <ul>
+    <li>One thread per project (Upbase / WhatsApp). No scattered DMs.</li>
+    <li>Raise blockers <em>as you experience them</em>, not after — silence delays the whole pipeline.</li>
+    <li>Confirm receipt of every brief with a thumbs up or "got it."</li>
+    <li><strong>All questions go to Jatin. Do not message Tiffany.</strong> Broken clip link, missing folder, footage that contradicts the brief → message Jatin with the V_ID + clip ID before doing anything.</li>
+  </ul>
+
+  <h3>Deliverables</h3>
+  <ul>
+    <li>Export 1080×1920 vertical, 4K source when available, 30fps unless brief says otherwise.</li>
+    <li>Filename convention: <code>V_NNN_topic_FINAL_v1.mp4</code></li>
+    <li>Always also deliver the <strong>CapCut project file</strong> alongside the final export — needed for trial-reel variants and re-cuts.</li>
+    <li>Upload to the shared Google Drive folder. Never WeTransfer or personal links.</li>
+    <li>Include a short note with creative calls you made + the song/audio you used.</li>
+  </ul>
+
+  <h3>Source footage & project files</h3>
+  <ul>
+    <li><strong>Never delete project files.</strong> Store every CapCut/FCP project so we can repost as trial reels with font/color tweaks.</li>
+    <li>Source raw footage stays until the project is fully approved + paid.</li>
+    <li>Back up working files weekly minimum.</li>
+  </ul>
+
+  <h3>Feedback loop</h3>
+  <ul>
+    <li>Round 1: full notes from me.</li>
+    <li>Round 2: only fixes.</li>
+    <li>Round 3+: only if scope changed.</li>
+    <li>If a note is unclear, ask before guessing.</li>
+  </ul>
+
+  <h3>Music selection</h3>
+  <ul>
+    <li>Use <strong>trending audio or trending background music</strong> where possible. Check TikTok Creative Center or IG Reels trending tab before picking.</li>
+    <li>Music must <strong>fit the storyline</strong> — energy shifts should line up with cuts, reveals, or beats. No random drop-ins.</li>
+    <li>If a trending track doesn't fit the story, pick <strong>story-fit over trend</strong>. Story always wins.</li>
+    <li>Flag the track choice in your delivery note (song name + why it fits).</li>
+    <li>No copyrighted commercial tracks unless cleared. Use in-app libraries or Epidemic / Artlist / Musicbed.</li>
+  </ul>
+
+  <h3>Creative direction</h3>
+  <ul>
+    <li>Treat the brief as a <strong>base reference</strong>, not strict instructions. Add your editing style on top — that's why I hire you.</li>
+    <li>Insert the PixSort app logo where it fits naturally.</li>
+    <li>Zoom in on my face during emotional/key moments.</li>
+    <li>Captions throughout the entire video, not just sometimes — even when on-screen text is already showing.</li>
+    <li>Color match across A-roll and B-roll in the same video.</li>
+  </ul>
+
+  <h3>Hard rules (not suggestions)</h3>
+  <ul>
+    <li><strong>DAY X slam</strong> — every Day Series video opens with a large white "DAY X" text on frame 1, bold, centered, holds 2 seconds. Before she speaks. Same style across every episode. Non-negotiable.</li>
+    <li><strong>Hook is untouchable</strong> — never trim the opening line. Never split it across two clips. The hook was chosen for the full delivery.</li>
+    <li><strong>B-roll audio muted</strong> — mute original audio on all B-roll beats unless the brief explicitly says to keep it. Music underneath only.</li>
+    <li><strong>Outfit continuity in Day Series</strong> — every clip in a single Day Series video must show the same outfit. Open every clip before cutting. If anything doesn't match, flag it.</li>
+    <li><strong>Length</strong> — 30-75 seconds. The brief specifies. Do not pad.</li>
+    <li><strong>Aspect ratio</strong> — 9:16 vertical, 1080×1920. Every video. No exceptions.</li>
+    <li><strong>File naming</strong> — use the exact name from the brief. Example: <code>V_091_day2-app-wasnt-working_FINAL_v1.mp4</code>. Do not rename.</li>
+    <li><strong>Upload location</strong> — the exact Drive folder in the brief's Delivery section. Missing folder → message Jatin.</li>
+    <li><strong>Brief wins over this doc</strong> — if they ever contradict, the brief takes priority.</li>
+  </ul>
+
+  <div class="nonneg" style="border-left-color:var(--red);background:#fff5f5">
+    <strong style="color:var(--red)">PixSort caption spelling — fix every instance</strong>
+    <p style="margin:6px 0;font-size:13px">Auto-captions always mishear the app name. Manually correct every single one before export.</p>
+    <table style="font-size:12px">
+      <tr><th>Auto-caption says (WRONG)</th><th>Must say (CORRECT)</th></tr>
+      <tr><td>Picsort / Pixar / Pixort</td><td><strong>PixSort</strong></td></tr>
+      <tr><td>Pick Sort / Pick Store</td><td><strong>PixSort</strong></td></tr>
+      <tr><td>Pig Store / Pig Sort</td><td><strong>PixSort</strong></td></tr>
+      <tr><td>Pixar Sort / PicSort</td><td><strong>PixSort</strong></td></tr>
+    </table>
+  </div>
+
+  <h3>Export specs</h3>
+  <table>
+    <tr><th>Spec</th><th>Value</th></tr>
+    <tr><td>Resolution</td><td>1080 × 1920 (9:16)</td></tr>
+    <tr><td>Codec</td><td>H.264, MP4</td></tr>
+    <tr><td>Bitrate</td><td>12-16 Mbps</td></tr>
+    <tr><td>Audio</td><td>AAC · 48kHz · stereo · -14 LUFS master</td></tr>
+    <tr><td>Captions</td><td>Burned in — not a sidecar file</td></tr>
+    <tr><td>Frame rate</td><td>Match source. Do not transcode.</td></tr>
+  </table>
+
+  <div class="nonneg">
+    <strong style="color:var(--red)">Quality bar — non-negotiables</strong>
+    <ul style="margin-top:6px">
+      <li>Audio leveled (-14 LUFS for social, no peaking).</li>
+      <li>Captions checked for typos and timing.</li>
+      <li>No copyrighted music unless cleared.</li>
+      <li>Color grade applied to all D-Log footage before export.</li>
+      <li>CapCut project file saved + delivered with every final.</li>
+      <li>Watch the full export back at least once before sending.</li>
+    </ul>
+  </div>
+
+  <h2>Short Form — Reference Videos</h2>
+  <table>
+    <tr><th>Creator</th><th>Example</th><th>Why I like it</th><th>What to watch for</th></tr>
+    <tr>
+      <td>Me (Tiff)</td>
+      <td><a href="https://www.instagram.com/reel/DTLlwCgiVTD/">Watch</a></td>
+      <td>Pacing on point. Colors + text + thumbnail nailed.</td>
+      <td>Baseline for my personal lifestyle videos.</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.instagram.com/meglovesdata/">Meglovesdata (carousels)</a></td>
+      <td><a href="https://www.instagram.com/p/DTOC2xgErVU/">Ex 1</a> · <a href="https://www.instagram.com/p/DRNROD0DXwi/">Ex 2</a></td>
+      <td>Professional, helpful, still IG-aesthetic. Carousels are <em>really</em> good.</td>
+      <td>Carousel layout + visual rhythm.</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.instagram.com/meglovesdata/">Meglovesdata (reel)</a></td>
+      <td><a href="https://www.instagram.com/reel/DTOiYx7EtHs/">Watch</a></td>
+      <td>Simple sound + visuals that support the message.</td>
+      <td>How minimal sound design carries a message.</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.instagram.com/jadesprake/">Jade Sprake</a></td>
+      <td><a href="https://www.instagram.com/reel/DTJGno5AYdB/">Watch</a></td>
+      <td>Super authentic. Tons of b-roll, clip changes every 1-2s.</td>
+      <td>Count clips in the first sentence. Pillar formula.</td>
+    </tr>
+    <tr>
+      <td>Street interview</td>
+      <td><a href="https://www.instagram.com/reel/DYFhZM0OouM/">Watch</a></td>
+      <td>The vibe I want for "asking strangers about my app" videos.</td>
+      <td>Visual hook at top of screen.</td>
+    </tr>
+  </table>
+
+  <h2>Workflow Notes</h2>
+  <ul>
+    <li><strong>Trial reels strategy:</strong> Every final → CapCut project shared → VA tweaks font/color/saturation → reposts as trial reel. Goal: 10x reach per original edit.</li>
+    <li><strong>Daily series cadence:</strong> Day N of building PixSort is the engine. Backlog should always have 5+ days ready.</li>
+    <li><strong>60-second cuts:</strong> When possible, deliver a 60s version alongside the full cut for cross-platform.</li>
+    <li><strong>Pinned demo video:</strong> Highest-priority always. Lives at the top of profile.</li>
+  </ul>
+
+  <div class="footer">
+    Last updated: 2026-05-26 · Tiffany Parra · Built for the editor team. Questions → WhatsApp.
+  </div>
+
+</div>
+</body>
+</html>
