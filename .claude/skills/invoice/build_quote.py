@@ -9,6 +9,8 @@ Usage:
   --extract  JSON written by Claude after reading the supplier quote (schema in SKILL.md)
   --out      output PDF path (a .png preview is written next to it)
   --config   optional, defaults to config.json beside this script
+  --render   optional image of the lit sign on a wall; shown as the main picture, with the
+             supplier drawing kept underneath as a small construction reference
 
 Everything numeric (currency conversion, markup, rounding) happens here, not in the model.
 """
@@ -155,7 +157,7 @@ def data_uri(path_or_image, fmt="PNG"):
     return f"data:{mime};base64," + base64.b64encode(raw).decode("ascii")
 
 
-def build_html(extract, cfg, image, total_str):
+def build_html(extract, cfg, image, total_str, render_path=None):
     with open(os.path.join(HERE, "template.html"), encoding="utf-8") as f:
         tpl = f.read()
 
@@ -182,8 +184,15 @@ def build_html(extract, cfg, image, total_str):
         "company": cfg["company"],
         "logo_src": data_uri(os.path.join(HERE, "assets", "fuse-neon-logo.png")),
         "date": date,
-        "image_src": data_uri(image),
-        "image_caption": extract.get("image_caption") or "Supplied artwork and LED layout",
+        "hero_src": data_uri(render_path) if render_path else data_uri(image),
+        "hero_caption": (extract.get("render_caption") or "Preview of the finished sign, lit") if render_path
+                        else (extract.get("image_caption") or "Supplied artwork and LED layout"),
+        "left_class": " with-render" if render_path else "",
+        "ref_panel": (
+            '<div class="ref"><img src="' + data_uri(image) + '" alt="Reference">'
+            '<div><div class="caption">' + html.escape(extract.get("image_caption") or "Supplied artwork and LED layout") + '</div>'
+            '<div class="sub">Preview is illustrative. Final colour and brightness confirmed at approval.</div></div></div>'
+        ) if render_path else "",
         "footnote_1": cfg["footnote_1"],
         "footnote_2": cfg["footnote_2"],
         "sign_type": extract.get("sign_type") or "Custom LED neon sign",
@@ -194,10 +203,8 @@ def build_html(extract, cfg, image, total_str):
     }
     out = tpl
     for k, v in values.items():
-        if k == "spec_rows":
-            out = out.replace("{{spec_rows}}", v)
-        else:
-            out = out.replace("{{" + k + "}}", html.escape(str(v)) if k not in ("logo_src", "image_src") else v)
+        raw = k in ("spec_rows", "logo_src", "hero_src", "ref_panel", "left_class")
+        out = out.replace("{{" + k + "}}", v if raw else html.escape(str(v)))
     return out
 
 
@@ -209,6 +216,7 @@ def main():
     ap.add_argument("--extract", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--config", default=os.path.join(HERE, "config.json"))
+    ap.add_argument("--render", help="optional image of the lit sign on a wall (AI render or led_preview.py output)")
     args = ap.parse_args()
 
     with open(args.config, encoding="utf-8") as f:
@@ -228,7 +236,10 @@ def main():
     try:
         im = load_source_image(args.input, workdir)
         im = crop_image(im, extract.get("crop"))
-        html_text = build_html(extract, cfg, im, total_str)
+        render_path = args.render or extract.get("render_image")
+        if render_path and not os.path.exists(render_path):
+            die(f"render image not found: {render_path}")
+        html_text = build_html(extract, cfg, im, total_str, render_path)
         html_path = os.path.join(workdir, "quote.html")
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_text)

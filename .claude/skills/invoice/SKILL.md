@@ -75,6 +75,13 @@ python3 -I .claude/skills/invoice/build_quote.py \
 
    It prints a pricing breakdown and writes the PDF plus a `.png` preview next to it. If it warns that the lines do not add up to the supplier total, re-read the supplier quote and fix the lines before going on.
 
+5b. **Optional: add a picture of the lit sign on a wall.** The quote can carry a second image: a render of the finished sign glowing on a white wall becomes the main picture, and the supplier drawing shrinks to a small construction-reference strip underneath. Two ways to get it, in order of quality:
+
+   - **AI render (best).** Crop the supplier image to the artwork only (no prices, no dimension text) and save it. Upload it to Higgsfield with `media_upload` (PUT the bytes with curl, then `media_confirm`), then call `generate_image` with model `gpt_image_2_6`, aspect ratio `4:3`, the uploaded media as `reference`, and a prompt like: "Photorealistic product render of the LED neon sign in the reference drawing, mounted on a clean white painted interior wall. Reproduce the shape, layout and colours exactly as drawn. The LED tubing glows with a soft light bloom on the wall. Clear acrylic backing with small screws. Straight-on view, slightly dim room, no people, no text, no watermark." Generating spends the user's Higgsfield credits (about 0.25 per image), so only do it when the user asked for a render. Download the result with curl and pass it as `--render`.
+   - **Code-only glow (free fallback).** `python3 -I led_preview.py --input artwork.png --out preview.png` adds a glow to the LED strokes and puts the sign on a plain wall. It looks like a diagram with glow, not a photo. Use it when the user wants a preview but not the credit spend, or when the AI route is unavailable.
+
+   Then add `--render preview.png` to the build command. `render_caption` in the extraction JSON overrides the default caption "Preview of the finished sign, lit".
+
 6. **Check the preview** with the Read tool. Confirm: no USD price is visible in the image, the size and specs match the supplier quote, and the total matches the breakdown. If a price is still visible, tighten the crop and rebuild.
 
 7. **Deliver.** Send the PDF to the user with SendUserFile, and give them the breakdown in chat: supplier total in USD, rate, percent used, and the CAD total. Never put supplier costs in the PDF itself.
@@ -91,6 +98,7 @@ Claude Code cloud sessions have all three. The page size is 12 x 8 inches, match
 
 - `config.json` - pricing settings and the fixed wording on the quote
 - `build_quote.py` - crops the image, applies pricing, fills the template, renders the PDF
+- `led_preview.py` - free code-only glow preview of the sign on a wall, for the optional render panel
 - `template.html` - the quote layout
 - `render.js` - HTML to PDF via Playwright
 - `assets/fuse-neon-logo.png` - logo shown top right
