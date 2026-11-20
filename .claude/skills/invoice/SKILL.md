@@ -64,10 +64,10 @@ When the user says something like "set the markup to 80 percent", edit the numbe
    - `specs` are shown after the automatic Product, Size, and Imperial rows. Three to four rows looks best.
    - `image_caption` is "Supplied artwork and LED layout" when the mockup is the customer's artwork, or "Product proof and construction reference" when it is a construction drawing.
 
-5. **Run the build** from the repository root:
+5. **Run the build.** `build_quote.py` lives in this skill's folder (the directory that holds this SKILL.md); use its full path:
 
 ```bash
-python3 -I .claude/skills/invoice/build_quote.py \
+python3 -I /path/to/skills/invoice/build_quote.py \
   --input "/path/to/supplier-quote.jpg" \
   --extract "/path/to/extract.json" \
   --out "/path/to/FUSE Quote - Puppy Love Spa & Salon.pdf"
