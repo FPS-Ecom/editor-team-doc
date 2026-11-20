@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MFP Ship-Date Update Emails — Rules & Template</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #f90100;
+    --yellow: #f2d12a;
+    --blue: #83c5ff;
+    --green: #00a524;
+    --white: #ffffff;
+    --black: #000000;
+    --paper: #fafafa;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: var(--black);
+    background: var(--paper);
+    margin: 0;
+    padding: 48px 32px;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  h1 {
+    font-weight: 900;
+    font-size: 40px;
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 22px;
+    margin: 36px 0 12px;
+    padding: 10px 14px;
+    background: var(--black);
+    color: var(--white);
+    border-radius: 6px;
+    letter-spacing: -0.01em;
+  }
+  h3 {
+    font-weight: 700;
+    font-size: 16px;
+    margin: 20px 0 8px;
+  }
+  .tagline {
+    font-weight: 500;
+    margin-bottom: 32px;
+    font-size: 15px;
+  }
+  ul, ol { margin: 6px 0 0; padding-left: 22px; }
+  li { margin: 4px 0; }
+  .card {
+    background: var(--white);
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: 6px;
+    margin-bottom: 4px;
+    vertical-align: middle;
+  }
+  .pill-red { background: var(--red); color: var(--white); }
+  .pill-yellow { background: var(--yellow); color: var(--black); }
+  .pill-blue { background: var(--blue); color: var(--black); }
+  .pill-green { background: var(--green); color: var(--white); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: var(--white);
+    font-size: 13px;
+  }
+  th, td {
+    border: 1px solid #e5e5e5;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--blue); font-weight: 700; }
+  a { color: var(--green); text-decoration: underline; }
+  .callout {
+    background: var(--yellow);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  .stop {
+    background: #fff5f5;
+    border-left: 4px solid var(--red);
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-top: 8px;
+  }
+  .rule {
+    background: var(--white);
+    border: 1px solid #eee;
+    border-left: 6px solid var(--green);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 12px 0;
+  }
+  .rule.rule-stop { border-left-color: var(--red); }
+  .rule h3 { margin: 0 0 6px; font-size: 16px; }
+  .rule-num {
+    display: inline-block;
+    background: var(--green);
+    color: var(--white);
+    font-weight: 900;
+    padding: 2px 10px;
+    border-radius: 4px;
+    margin-right: 8px;
+    font-size: 14px;
+  }
+  .rule-stop .rule-num { background: var(--red); }
+  .rule p { margin: 0; font-size: 14px; }
+  pre {
+    background: var(--white);
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    padding: 16px 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    margin: 10px 0 0;
+  }
+  pre .ph { background: var(--yellow); padding: 0 4px; border-radius: 3px; font-weight: 600; }
+  code {
+    background: #f0f0f0;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+  }
+  .footer {
+    margin-top: 48px;
+    padding-top: 18px;
+    border-top: 1px solid #ddd;
+    font-size: 12px;
+    color: #666;
+  }
+  @media (max-width: 700px) {
+    body { padding: 24px 16px; }
+    h1 { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>MFP Ship-Date Update Emails</h1>
+  <div class="tagline">Rules &amp; template for telling customers their My Fireplace Products (MFP) wood stove or insert has a later ship date. Bookmark this page.</div>
+
+  <h2>Overview</h2>
+  <div class="card">
+    <p style="margin-top:0">
+      We email customers from <a href="mailto:support@firepitsurplus.com">support@firepitsurplus.com</a> when their wood stove or insert from My Fireplace Products (MFP) has a later ship date, so they can wait, switch to an in-stock unit, or cancel. Each email covers <strong>one order from the team's list</strong> and names <strong>only the main item</strong>.
+    </p>
+    <p style="margin-bottom:0">
+      <strong>Shopify</strong> supplies the customer's name, email and product name. <strong>MFP emails</strong> supply the ship date: the latest status update that lists the main item, or else the order confirmation. If that date is already past, or any detail is missing, the order is <strong>flagged to the team instead of emailed</strong>.
+    </p>
+  </div>
+
+  <h3>Where each detail comes from</h3>
+  <table>
+    <tr><th>Detail</th><th>Source</th><th>Notes</th></tr>
+    <tr><td>Which orders to email</td><td>The team's list</td><td>Shopify order numbers only. Never work from MFP confirmations alone.</td></tr>
+    <tr><td>Customer name &amp; email</td><td>Shopify order</td><td>Name matches the MFP shipping name.</td></tr>
+    <tr><td>Product name</td><td>Shopify line-item title</td><td>Main item only (wood stove or wood insert).</td></tr>
+    <tr><td>MFP order number</td><td>"Your My Fireplace Products order confirmation" Gmail thread</td><td>Match by PO number = Shopify order number. Note the MFP order number (e.g. <code>#20000021479</code>).</td></tr>
+    <tr><td>Ship date</td><td>"Your MFP Order Status has been Updated" emails, else the order confirmation</td><td>Latest update that lists the main item's SKU. Format <code>YYYY-MM-DD</code>.</td></tr>
+  </table>
+
+  <h2>Rules</h2>
+
+  <div class="rule">
+    <h3><span class="rule-num">1</span>Only listed orders.</h3>
+    <p>Email only the Shopify order numbers on the team's list. Never email from the MFP confirmations alone: some are repeats, and some orders aren't delayed.</p>
+  </div>
+
+  <div class="rule">
+    <h3><span class="rule-num">2</span>Match the MFP confirmation by PO number.</h3>
+    <p>All confirmations arrive in the <strong>"Your My Fireplace Products order confirmation"</strong> Gmail thread. The MFP "PO number" equals our Shopify order number (PO 8660 = order #8660). Note the MFP order number on that confirmation (for example, <code>#20000021479</code>); status updates use only that number.</p>
+  </div>
+
+  <div class="rule">
+    <h3><span class="rule-num">3</span>Customer name and email come from Shopify.</h3>
+    <p>Use the customer name on the Shopify order (which matches the MFP shipping name) and the Shopify customer email.</p>
+  </div>
+
+  <div class="rule">
+    <h3><span class="rule-num">4</span>Product name comes from Shopify.</h3>
+    <p>Use the Shopify line-item title, not MFP's name ("Drolet Columbia II Wood Stove", not "Wood Stove - COLUMBIA II").</p>
+  </div>
+
+  <div class="rule">
+    <h3><span class="rule-num">5</span>Mention the main item only.</h3>
+    <p>The wood stove or wood insert is always the main item. Leave out add-ons such as faceplates, blowers, firescreens and pipe kits.</p>
+  </div>
+
+  <div class="rule">
+    <h3><span class="rule-num">6</span>Ship date = the latest MFP status update for the main item.</h3>
+    <p>Search <strong>"Your MFP Order Status has been Updated"</strong> emails for the MFP order number. Use the <strong>"YOUR ORDER IS SCHEDULED TO SHIP BY"</strong> date from the most recently sent one that lists the main item's SKU. Updates can cover add-ons only (a blower or firescreen), so skip any that don't list the stove or insert. If no status update lists the main item, use the <strong>"Estimated ship date"</strong> on the order confirmation. Write the date as <code>YYYY-MM-DD</code>.</p>
+  </div>
+
+  <div class="rule">
+    <h3><span class="rule-num">7</span>Stove vs insert wording.</h3>
+    <p>If the main item is a wood insert, say "wood insert" in both spots in the body. Otherwise say "wood stove".</p>
+  </div>
+
+  <div class="rule rule-stop">
+    <h3><span class="rule-num">8</span>Past-dated = stop.</h3>
+    <p>If the ship date from rule 6 is <strong>today or earlier</strong>, do <strong>NOT</strong> send. Alert the team; they check with MFP and send that email manually.</p>
+  </div>
+
+  <div class="rule">
+    <h3><span class="rule-num">9</span>Send from support@firepitsurplus.com.</h3>
+    <p>Send from <a href="mailto:support@firepitsurplus.com">support@firepitsurplus.com</a>, with the Gmail signature added under "Best regards,".</p>
+  </div>
+
+  <div class="rule">
+    <h3><span class="rule-num">10</span>One email per order.</h3>
+    <p>Before sending, check the customer hasn't already gotten this update (for example, #8660 got a test send on 2026-11-19).</p>
+  </div>
+
+  <div class="rule rule-stop">
+    <h3><span class="rule-num">11</span>Alert, don't guess.</h3>
+    <p>If an order is missing from Shopify, has no matching MFP confirmation, or has no clear wood stove or insert, skip it and flag it to the team.</p>
+  </div>
+
+  <h2>When to stop and flag the team</h2>
+  <div class="stop">
+    <strong>Do not send. Flag the order to the team instead, if any of these is true:</strong>
+    <ul>
+      <li>The order number isn't on the team's list.</li>
+      <li>The order can't be found in Shopify.</li>
+      <li>There is no MFP confirmation with a matching PO number.</li>
+      <li>There is no clear wood stove or wood insert on the order.</li>
+      <li>The ship date (rule 6) is today or earlier.</li>
+      <li>The customer has already received this update for this order.</li>
+    </ul>
+  </div>
+
+  <h2>Before you hit send</h2>
+  <div class="card">
+    <ol style="margin-top:0">
+      <li>Order number is on the team's list. <span class="pill pill-green">Rule 1</span></li>
+      <li>MFP confirmation matched by PO number; MFP order number noted. <span class="pill pill-green">Rule 2</span></li>
+      <li>Customer name, email and product name copied from Shopify. <span class="pill pill-green">Rules 3–4</span></li>
+      <li>Only the stove or insert is named; no add-ons. <span class="pill pill-green">Rule 5</span></li>
+      <li>Ship date taken from the latest status update that lists the main item's SKU (or the confirmation if none), written as <code>YYYY-MM-DD</code>. <span class="pill pill-green">Rule 6</span></li>
+      <li>"wood stove" or "wood insert" used in both spots. <span class="pill pill-green">Rule 7</span></li>
+      <li>Ship date is in the future. <span class="pill pill-red">Rule 8</span></li>
+      <li>Sending from support@firepitsurplus.com with the Gmail signature. <span class="pill pill-green">Rule 9</span></li>
+      <li>Customer hasn't already received this update. <span class="pill pill-green">Rule 10</span></li>
+    </ol>
+  </div>
+
+  <h2>Template</h2>
+  <div class="callout">Fill every <span style="background:var(--white);padding:0 4px;border-radius:3px;font-weight:600">[bracketed]</span> field. Say "wood stove" or "wood insert" in both spots. Nothing else in the body changes.</div>
+<pre>Hi <span class="ph">[customer name]</span>,
+
+I wanted to update you regarding your order.
+The manufacturer just informed us that the <span class="ph">[Shopify product name]</span> you ordered has an estimated ship date of <span class="ph">[MFP ship date]</span>.
+
+If you would like to select an alternative in-stock <span class="ph">[wood stove / wood insert]</span> or cancel your order, please call us at 888-671-4611 and press 1 for Sales for immediate assistance.
+
+Otherwise, we are keeping you first in line for this best-selling <span class="ph">[wood stove / wood insert]</span>, and once it arrives in the US it will ship directly to you from the manufacturer.
+
+Best regards,
+<span class="ph">[Gmail signature]</span></pre>
+
+  <h2>Example</h2>
+  <p style="font-size:13px;color:#555;margin:0 0 6px">Order #8660 (PO 8660, MFP order #20000021479), main item "Drolet Columbia II Wood Stove". Customer and date shown as placeholders.</p>
+<pre>Hi <span class="ph">[customer first name]</span>,
+
+I wanted to update you regarding your order.
+The manufacturer just informed us that the Drolet Columbia II Wood Stove you ordered has an estimated ship date of <span class="ph">[YYYY-MM-DD]</span>.
+
+If you would like to select an alternative in-stock wood stove or cancel your order, please call us at 888-671-4611 and press 1 for Sales for immediate assistance.
+
+Otherwise, we are keeping you first in line for this best-selling wood stove, and once it arrives in the US it will ship directly to you from the manufacturer.
+
+Best regards,
+<span class="ph">[Gmail signature]</span></pre>
+
+  <div class="footer">
+    Last updated: 2026-11-20 · Tiffany Parra · Fire Pit Surplus support team.
+  </div>
+
+</div>
+</body>
+</html>
