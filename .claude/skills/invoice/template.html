@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{{pdf_title}}</title>
+<style>
+  @page { size: 12in 8in; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; width: 12in; height: 8in; background: #fff; }
+  body { font-family: Helvetica, Arial, sans-serif; color: #2b2f36; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { position: absolute; left: 12px; top: 12px; width: calc(12in - 24px); height: calc(8in - 24px);
+          border: 2px solid #1d5bbd; border-radius: 10px; padding: 30px 30px 0 30px; display: flex; flex-direction: column; }
+  .blue { color: #1d5bbd; }
+
+  .header { display: flex; justify-content: space-between; align-items: flex-start; padding: 0 16px 14px 16px; border-bottom: 1.5px solid #d9dde3; }
+  .doc-title { font-size: 17px; font-weight: bold; color: #2b2f36; }
+  .title { font-size: 23px; font-weight: bold; color: #1d5bbd; margin-top: 8px; }
+  .subtitle { font-size: 13px; color: #5a606a; margin-top: 6px; }
+  .brand { text-align: center; }
+  .brand img { height: 68px; display: block; margin: 0 auto 4px auto; }
+  .brand .meta { font-size: 10.5px; font-weight: bold; color: #1d5bbd; white-space: nowrap; }
+
+  .body { display: flex; gap: 24px; margin-top: 22px; flex: 1; }
+  .left { width: 560px; display: flex; flex-direction: column; }
+  .right { flex: 1; }
+
+  .proof { background: #f3f5f8; border-radius: 12px; padding: 20px 22px 18px 22px; height: 368px; display: flex; flex-direction: column; }
+  .proof .img-wrap { flex: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .proof img { max-width: 100%; max-height: 300px; background: #fff; }
+  .proof .caption { font-size: 13px; font-weight: bold; color: #1d5bbd; margin-top: 14px; }
+
+  /* with a render: the render is the hero, the construction drawing becomes a strip underneath */
+  .left.with-render .proof { height: 318px; padding: 16px 22px 14px 22px; }
+  .left.with-render .proof img { max-height: 258px; }
+  .left.with-render + .right .details { height: 414px; }
+  .left.with-render .proof .caption { margin-top: 10px; }
+  .ref { background: #f3f5f8; border-radius: 12px; padding: 12px 22px; height: 84px; margin-top: 12px; display: flex; align-items: center; gap: 18px; }
+  .ref img { height: 60px; max-width: 160px; background: #fff; border-radius: 4px; }
+  .ref .caption { font-size: 12px; font-weight: bold; color: #1d5bbd; }
+  .ref .sub { font-size: 11px; color: #5a606a; margin-top: 4px; font-weight: normal; }
+
+  .notes { margin-top: 20px; font-size: 11.5px; color: #5a606a; line-height: 1.7; padding-left: 4px; }
+
+  .details { background: #f3f5f8; border-radius: 12px; padding: 22px 28px 26px 28px; height: 368px; display: flex; flex-direction: column; }
+  .details h2 { margin: 0; font-size: 17px; font-weight: bold; color: #1d5bbd; padding-bottom: 14px; border-bottom: 1.5px solid #d9dde3; }
+  .specs { margin-top: 12px; width: 100%; border-collapse: collapse; }
+  .specs td { padding: 7px 0; font-size: 12.5px; vertical-align: top; }
+  .specs td.k { width: 120px; font-weight: bold; color: #2b2f36; font-size: 11.5px; }
+  .specs td.v { color: #2b2f36; }
+
+  .total { margin-top: auto; background: #e9f3fd; border-radius: 8px; padding: 16px 28px 18px 28px; display: flex; justify-content: space-between; align-items: center; }
+  .total .lbl { font-size: 11px; font-weight: bold; color: #5a606a; align-self: flex-start; }
+  .total .amt { font-size: 30px; font-weight: bold; color: #1d5bbd; }
+
+  .footer { margin-top: auto; border-top: 1.5px solid #d9dde3; padding: 18px 0 22px 0; text-align: center; }
+  .footer .t { font-size: 13px; font-weight: bold; color: #1d5bbd; }
+  .footer .s { font-size: 11.5px; color: #5a606a; margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div>
+      <div class="doc-title">{{document_title}}</div>
+      <div class="title">{{title}}</div>
+      <div class="subtitle">{{subtitle}}</div>
+    </div>
+    <div class="brand">
+      <img src="{{logo_src}}" alt="{{company}}">
+      <div class="meta">{{date}} | Page 1 of 1</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="left{{left_class}}">
+      <div class="proof">
+        <div class="img-wrap"><img src="{{hero_src}}" alt="Artwork"></div>
+        <div class="caption">{{hero_caption}}</div>
+      </div>
+      {{ref_panel}}
+      <div class="notes">
+        <div>{{footnote_1}}</div>
+        <div>{{footnote_2}}</div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="details">
+        <h2>{{sign_type}}</h2>
+        <table class="specs">
+          {{spec_rows}}
+        </table>
+        <div class="total">
+          <div class="lbl">TOTAL</div>
+          <div class="amt">{{total}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="t">{{footer_title}}</div>
+    <div class="s">{{footer_text}}</div>
+  </div>
+</div>
+</body>
+</html>

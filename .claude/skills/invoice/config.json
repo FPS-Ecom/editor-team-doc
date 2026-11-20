@@ -1,0 +1,20 @@
+{
+  "_comment": "Pricing settings for the FUSE NEON quote skill. Edit the numbers here; nothing else needs to change.",
+  "currency": "CAD",
+  "usd_to_cad": 1.4,
+  "pricing_mode": "markup",
+  "_pricing_mode_help": "markup = add a percentage on top of cost (cost 100 at 50% -> 150). margin = percentage of the final sale price (cost 100 at 50% margin -> 200).",
+  "percent": {
+    "product": 40,
+    "shipping": 40
+  },
+  "_percent_help": "product applies to neon price, uv print, and any other product line. shipping applies to shipping and freight lines.",
+  "round_total_to": 1,
+  "_round_help": "1 = whole dollars, 5 = nearest 5 dollars, 0.01 = cents.",
+  "company": "FUSE NEON",
+  "document_title": "Custom Product Quote",
+  "footnote_1": "Price in CAD. Taxes, delivery and installation to be confirmed.",
+  "footnote_2": "Final artwork, backing finish, illumination colour and mounting details require approval before production.",
+  "footer_title": "LED Standards and Electrical Requirements",
+  "footer_text": "Electrical components and applicable certification to be confirmed."
+}
